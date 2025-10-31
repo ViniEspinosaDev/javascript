@@ -1,10 +1,5 @@
-let number = 10
-number = number + 1
-console.log(number) // 11
-console.log(number++) // 11
-console.log(++number) // 13
-number += 1
-console.log(number) // 14
-console.log(--number) // 13
-console.log(number--) // 13
-console.log(number) // 12
+// Ordem de precedência - prioridade dos operadores (**; *,/,//,%; +,-; ==, !=, <=, >=, >, <; not; and; or)
+let equation = 2 + 3 * 4 // 3 * 4 = 12 + 2 == 14
+console.log(equation) // 14
+equation = (2 + 3) * 4 // (2 + 3) = 5 * 4 == 20
+console.log(equation) // 20
