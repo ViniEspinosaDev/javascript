@@ -1,25 +1,88 @@
-// Callback function: Função passada para outra funcao como argumento
-function execute(taskName, callback) {
-   console.log("Executando a tarefa: ", taskName);
-   callback();
-}
+var guest = document.querySelector("#guest-1");
+console.log(guest.innerHTML);
+console.log(guest.innerText); // Mostra só o visível
+console.log(guest.innerHTML);
 
-function callback() {
-   console.log("Tarefa finalizada");
-}
+// Adicionar/remover classe
+//const input = document.querySelector("#name");
+//input.classList.add("input-error");
+//input.classList.toggle("input-error"); // Se não tiver a classe, adiciona
 
-// Passando para a função
-execute("Donwload do arquivo", callback);
+// Mudar style
+const button = document.querySelector("button");
+button.style.backgroundColor = "#3F33";
 
-// Criando a função no próprio parâmetro
-execute("Upload do arquivo...", function () {
-    console.log("Função de callback com uma função anônima.")
-});
+// Adicionar elementos
+const guests = document.querySelector("ul");
+const newGuest = document.createElement("li");
+const guestName = document.createElement("span");
+guestName.textContent = "Novo nome";
+newGuest.append(guestName);
+guests.appendChild(newGuest);
 
-// Criando a função como arrow function no próprio parâmetro
-execute("Excluindo arquivo...", () => {
-    console.log("Arquivo excluído")
+// Evento
+window.addEventListener("load", () => {
+    console.log("A página foi carregada!")
 })
 
-// Utilizar arrow function de forma encurtada (Quando é apenas uma linha)
-execute("Salvando arquivo...", () => console.log("Arquivo salvo!"))
+addEventListener("click", (event) => {
+    // event.preventDefault()
+    //console.log(event) // Todos os dados do elemento
+    //console.log(event.target) // Retorna o elemento clicado
+    console.log(event.target.textContent) // Retorna o textContente do elemento clicado
+})
+
+const ul = document.querySelector("ul")
+ul.addEventListener("scroll", (event) => {
+    console.log(event)
+
+    ul.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+})
+
+const form = document.querySelector("form")
+
+form.onsubmit = (event) => {
+    event.preventDefault()
+    console.log("Você fez submit #1") // Nao aparece
+}
+
+form.onsubmit = (event) => {
+    event.preventDefault()
+    console.log("Você fez submit #2") // Nao aparece
+}
+
+form.onsubmit = (event) => {
+    event.preventDefault()
+    console.log("Você fez submit #3") // aparece
+}
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    console.log("Você fez submit #4") // aparece
+})
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    console.log("Você fez submit #5") // aparece
+})
+
+// eventos input
+const input = document.querySelector("input")
+
+// keydown - qualquer tecla pressionada
+input.addEventListener("keydown", (event) => {
+    //console.log(event)
+})
+
+// keypress - quando tecla do tipo caractere é pressionada (ignora ctrl, shift, alt, esc, enter)
+input.addEventListener("keypress", (event) => {
+    console.log(event)
+})
+
+// change
+input.onchange = () => {
+    console.log("Input mudou")
+}
