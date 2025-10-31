@@ -1,9 +1,12 @@
-// Case sensitive
-var product = "Teclado Mecânico"
-var Product = "Mouse Gamer"
+let user
+console.log(user)
 
-// Sobrescreveu a primeira variável (não deu erro)
-var product = "Fone sem fio"
+// Dá erro, pois já tem variável criada com mesmo nome
+// let user 
+console.log(user)
 
-console.log(product)
-console.log(Product)
+let email = "vini@email.com"
+console.log(email)
+
+email = "vini@gmail.com"
+console.log(email)
