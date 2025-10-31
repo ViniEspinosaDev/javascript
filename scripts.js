@@ -1,8 +1,7 @@
-// Number
-console.log(5)
-console.log("5")
-console.log(typeof 5)
+// Boolean
+console.log(true);
+console.log(false);
 
-// Guardar valores inteiro positivo, negativo, reais (float)
-console.log(-5)
-console.log(123.88)
+let isLoading = true;
+console.log(isLoading);
+console.log(typeof isLoading);
