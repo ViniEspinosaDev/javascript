@@ -1,14 +1,9 @@
-// Declara uma variável sem valor
-var user 
-console.log(user)
+// Case sensitive
+var product = "Teclado Mecânico"
+var Product = "Mouse Gamer"
 
-// Declara variável e atribui valor
-var email = "vini@email.com"
-console.log(email)
+// Sobrescreveu a primeira variável (não deu erro)
+var product = "Fone sem fio"
 
-// Substituir valor da variável
-email = "joao@email.com"
-console.log(email)
-
-email = 23
-console.log(email)
+console.log(product)
+console.log(Product)
