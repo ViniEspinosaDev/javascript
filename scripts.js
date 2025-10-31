@@ -1,21 +1,25 @@
-/* Hoisting (levantar ou içar) 
+// Escopo global
+var email = "joao@gmail.com"
+{
+    // Escopo de bloco
+    console.log(email)
+}
 
-    se refere ao comportamento do interpretador de mover
-    as declarações de variáveis e funções para o topo do escopo em que foram definidas,
-    antes mesmo da execução do código.
+{
+    var age = 18
+}
+// Funciona porque var é escopo global
+console.log(age)
 
-    esse comportamento possibilita usar uma variável ou função antes que ela esteja definida.
-    
-    se usar antes da variável ser declarada, vai ser undefined.
+{
+    let name = "Vini"
+}
+// Não vai mostrar porque let não é nível global
+console.log(name) 
 
-    função também.
+let escopo = "escopo acima"
 
-    usar mais o let do que o var. 
-    var só quando for escopo global
-
-    hoisting só funciona com o var
-*/
-
-console.log(user)
-
-var user = "user"
+{
+    // Funciona pois let escopo está no escopo acima
+    console.log(escopo)
+}
