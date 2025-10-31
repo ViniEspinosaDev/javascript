@@ -1,12 +1,5 @@
-let user
-console.log(user)
+const number = 33
+console.log(number)
 
-// Dá erro, pois já tem variável criada com mesmo nome
-// let user 
-console.log(user)
-
-let email = "vini@email.com"
-console.log(email)
-
-email = "vini@gmail.com"
-console.log(email)
+number = 4 // Dá erro
+console.log(number)
