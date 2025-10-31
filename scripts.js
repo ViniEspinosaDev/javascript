@@ -1,7 +1,8 @@
-// Boolean
-console.log(true);
-console.log(false);
+// undefined (indefinido) - js atribui automaticamente para variável sem valor
+// null - não tem nada, colocado intencionalmente
 
-let isLoading = true;
-console.log(isLoading);
-console.log(typeof isLoading);
+let emptiness
+console.log("O valor é: ", emptiness)
+
+let empty = null
+console.log("O valor é: ", empty)
