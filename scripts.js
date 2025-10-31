@@ -1,14 +1,13 @@
-showMessage("Fala meu amigo")
+/**
+ * authenticates user
+ * @param {String} email user email
+ * @param {String} password more than 8 characters
+ * @returns {Number} user id
+ */
+function signIn(email, password) {
+    // Fluxo de autenticação
 
-function showMessage(message){
-    console.log(message)
-    endLine()
-
-    // Existe essa função apenas nesse escopo
-    function endLine(){
-        console.log("-------")
-    }
+    return 7
 }
 
-// Erro
-endline()
+signIn("vini@email", "senha")
