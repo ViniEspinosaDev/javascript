@@ -1,13 +1,15 @@
-/**
- * authenticates user
- * @param {String} email user email
- * @param {String} password more than 8 characters
- * @returns {Number} user id
- */
-function signIn(email, password) {
-    // Fluxo de autenticação
+// Função anônima (função que não possui nome)
+const showMessage = function () {
+   return "Olá, Vinicius"
+};
 
-    return 7
+console.log(showMessage) // ƒ () { return "Olá, Vinicius" }
+console.log(showMessage()); // Olá, Vinicius
+
+const executeSum = function(number1, number2) {
+    let result = number1 + number2
+    return result
 }
 
-signIn("vini@email", "senha")
+console.log(executeSum) // ƒ (number1, number2) { let result = number1 + number2 return result }
+console.log(executeSum(1, 2)) // 3
