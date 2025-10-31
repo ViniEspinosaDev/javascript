@@ -1,6 +1,10 @@
-console.log("SOMA: ", 5 + 3 + 8)
-console.log("CONCATENAÇÃO: ", 5 + "5")
-console.log("DIVISÃO: ", 10 / 3)
-console.log("MULTIPLICAÇÃO: ", 10 * 3)
-console.log("RESTO DA DIVISÃO: ", 10 % 3)
-console.log("EXPONENCIAL: ", 2 ** 3)
+let number = 10
+number = number + 1
+console.log(number) // 11
+console.log(number++) // 11
+console.log(++number) // 13
+number += 1
+console.log(number) // 14
+console.log(--number) // 13
+console.log(number--) // 13
+console.log(number) // 12
