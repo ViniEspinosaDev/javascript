@@ -1,25 +1,38 @@
-// Escopo global
-var email = "joao@gmail.com"
-{
-    // Escopo de bloco
-    console.log(email)
-}
+// case-sensitive
+let username = "Rodr"
+let userName = "Ana"
 
-{
-    var age = 18
-}
-// Funciona porque var é escopo global
-console.log(age)
+console.log(username)
+console.log(userName)
 
-{
-    let name = "Vini"
-}
-// Não vai mostrar porque let não é nível global
-console.log(name) 
+// PODEMOS
+let $email = "rod@gmail"
+let _email = "john"
+let Ação = "Cadastrar"
+let user_email = "user@gmail.com"
 
-let escopo = "escopo acima"
+console.log($email)
+console.log(_email)
+console.log(Ação)
+console.log(user_email)
 
-{
-    // Funciona pois let escopo está no escopo acima
-    console.log(escopo)
-}
+// Nao podemos
+// let 1comecarComNumero = 1
+// let product name = "Nome"
+
+// RECOMENDAÇÃO
+/* 
+    escrever em inglês (google tradutor)
+    nao usar caracteres com acento nem caracteres especiais
+    nome para variavel que faça sentido, descritivo
+
+    RECOMENDACAO camelCase (corcunda do camelo) (nomes de variáveis e funções)
+    let productName
+    let firstName
+    let lastName
+
+    RECOMENDACAO snake_case (rastejar) (utilizado dentro de objetos)
+    let product_name = "Teclado"
+    let first_name = "Primeiro"
+    let last_name = "Sobrenome"
+*/
