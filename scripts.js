@@ -1,22 +1,22 @@
-console.log("### EXEMPLOS FALSY ###")
-console.log(false ? "TRUE": "FALSE") // false
-console.log(0 ? "TRUE": "FALSE") // false
-console.log(-0 ? "TRUE": "FALSE") // false
-console.log("" ? "TRUE": "FALSE") // false
-console.log(null ? "TRUE": "FALSE") // false
-console.log(NaN ? "TRUE": "FALSE") // false
-console.log(undefined ? "TRUE": "FALSE") // false
+try {
+    // Tenta executar algo
+    console.log(result)
+} catch (error) {
+    // Executa caso dê erro
+    console.log(`Não foi possível executar. Retorno: ${error}`)
+} finally {
+    // Executa sempre
+    console.log("Fim da execução")
+}
 
-console.log("### EXEMPLOS TRUTHY")
-console.log(true ? "TRUE": "FALSE") // true
-console.log(1 ? "TRUE": "FALSE") // true
-console.log("aa" ? "TRUE": "FALSE") // true
-console.log(" " ? "TRUE": "FALSE") // true
-console.log("false" ? "TRUE": "FALSE") // true
-console.log(-1 ? "TRUE": "FALSE") // true
-console.log(1221 ? "TRUE": "FALSE") // true
-console.log(-1221 ? "TRUE": "FALSE") // true
-console.log(-1.221 ? "TRUE": "FALSE") // true
-console.log({} ? "TRUE": "FALSE") // true
-console.log([] ? "TRUE": "FALSE") // true
-console.log(Infinity ? "TRUE": "FALSE") // true
+let result = 0
+
+try {
+    if(result == 0)
+        throw new Error("O valor é igual a zero.")
+} catch (error) {
+    console.log(`Não foi possível executar. Retorno: ${error}`)
+}
+finally {
+    console.log("Fim")
+}
