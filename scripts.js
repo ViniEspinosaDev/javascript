@@ -1,24 +1,14 @@
-class Person {
-   constructor(name, email) {
-      this.name = name;
-      this.email = email;
-   }
+// Prototype - todos objetos herdam em corrente
 
-   sendEmail() {
-      console.log("e-mail was sent")
-   }
+const address = {
+   city: "São Paulo",
+   country: "Brazil",
+};
 
-   static showMessage() {
-      console.log("oiiii amigao")
-   }
-}
+console.log(address);
 
-const person = new Person("João", "joao@email.com");
-console.log(person.name)
+const user = ["Rod", "Ma", "Jo"];
+console.log(user);
 
-const person2 = new Person("Marcelo", "marcelo@email.com");
-console.log(person2.name)
-
-person2.sendEmail()
-
-Person.showMessage()
+const userName = "Rod"
+console.log(userName.__proto__)
