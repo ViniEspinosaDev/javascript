@@ -1,21 +1,23 @@
-let students = ["Vini", "Joao", "Julio"];
+// Values
+let amount = 12.5;
+let message = amount.toLocaleString("pt-BR", {
+   style: "currency",
+   currency: "BRL",
+});
+console.log(message);
 
-for (let student of students) {
-   // Exibe o nome dos estudantes
-   console.log(student);
-}
+// Date
+let date = new Date("2025-10-02T21:33:33");
+let dateMessage = date.toLocaleString("pt-BR", {
+   dateStyle: "full",
+});
+console.log(dateMessage);
 
-for (let index in students) {
-   // Exibe o index dos estudantes
-   console.log(index);
-}
-
-let user = {
-   name: "Rodrigo",
-   email: "rod@email.com",
-};
-
-for (let value of user) {
-   // Erro pois não é iterável
-   console.log(value);
-}
+dateMessage = date.toLocaleString("pt-BR", {
+   day: "2-digit",
+   month: "2-digit",
+   year: "2-digit",
+   hour: "2-digit",
+   minute: "2-digit",
+});
+console.log(dateMessage);
