@@ -1,13 +1,24 @@
-// Intl é a API de internacionalização do ECMAScript
-const currentLocale = Intl.DateTimeFormat().resolvedOptions();
-console.log(currentLocale);
+class Person {
+   constructor(name, email) {
+      this.name = name;
+      this.email = email;
+   }
 
-// Exibe no formato de acordo com a localidade
-console.log(new Intl.DateTimeFormat("pt-BR").format(new Date()));
-console.log(new Intl.DateTimeFormat("en-US").format(new Date()));
+   sendEmail() {
+      console.log("e-mail was sent")
+   }
 
-const date = new Date();
-// Diferença em minutos do timezone
-console.log(date.getTimezoneOffset());
-// Diferença em horas do timezone
-console.log(date.getTimezoneOffset() / 60);
+   static showMessage() {
+      console.log("oiiii amigao")
+   }
+}
+
+const person = new Person("João", "joao@email.com");
+console.log(person.name)
+
+const person2 = new Person("Marcelo", "marcelo@email.com");
+console.log(person2.name)
+
+person2.sendEmail()
+
+Person.showMessage()
