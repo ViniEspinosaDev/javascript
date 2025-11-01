@@ -1,21 +1,21 @@
-let person = {
-   name: "Vini",
-   surname: "Espinosa",
-   email: "vini@emil.com",
-};
+let students = ["Vini", "Joao", "Julio"];
 
-for (let property in person) {
-   // Exibe o nome da propriedade
-   console.log(property);
-
-   // Exibe o conteudo da propriedade
-   console.log(person[property]);
+for (let student of students) {
+   // Exibe o nome dos estudantes
+   console.log(student);
 }
 
-let students = ["Vini", "Ana", "Gabi"];
-
 for (let index in students) {
+   // Exibe o index dos estudantes
    console.log(index);
+}
 
-   console.log(students[index]);
+let user = {
+   name: "Rodrigo",
+   email: "rod@email.com",
+};
+
+for (let value of user) {
+   // Erro pois não é iterável
+   console.log(value);
 }
