@@ -1,88 +1,66 @@
-var guest = document.querySelector("#guest-1");
-console.log(guest.innerHTML);
-console.log(guest.innerText); // Mostra só o visível
-console.log(guest.innerHTML);
+const amount = document.getElementById("amount");
+const currency = document.getElementById("currency");
+const result = document.getElementById("result");
+const description = document.getElementById("description");
 
-// Adicionar/remover classe
-//const input = document.querySelector("#name");
-//input.classList.add("input-error");
-//input.classList.toggle("input-error"); // Se não tiver a classe, adiciona
+const usd = 5.38;
+const eur = 6.23;
+const gbp = 7.07;
 
-// Mudar style
-const button = document.querySelector("button");
-button.style.backgroundColor = "#3F33";
+function changeInfo() {
+   let symbol;
+   let amount;
 
-// Adicionar elementos
-const guests = document.querySelector("ul");
-const newGuest = document.createElement("li");
-const guestName = document.createElement("span");
-guestName.textContent = "Novo nome";
-newGuest.append(guestName);
-guests.appendChild(newGuest);
+   switch (currency.value) {
+      case "USD":
+         symbol = "$";
+         amount = usd;
+         break;
+      case "EUR":
+         symbol = "€";
+         amount = eur;
+         break;
+      case "GBP":
+         symbol = "£";
+         amount = gbp;
+         break;
+   }
 
-// Evento
-window.addEventListener("load", () => {
-    console.log("A página foi carregada!")
-})
-
-addEventListener("click", (event) => {
-    // event.preventDefault()
-    //console.log(event) // Todos os dados do elemento
-    //console.log(event.target) // Retorna o elemento clicado
-    console.log(event.target.textContent) // Retorna o textContente do elemento clicado
-})
-
-const ul = document.querySelector("ul")
-ul.addEventListener("scroll", (event) => {
-    console.log(event)
-
-    ul.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    })
-})
-
-const form = document.querySelector("form")
-
-form.onsubmit = (event) => {
-    event.preventDefault()
-    console.log("Você fez submit #1") // Nao aparece
+   description.textContent = `${symbol} 1.00 - R$ ${amount.toFixed(2)}`;
+   console.log(description.textContent);
 }
 
-form.onsubmit = (event) => {
-    event.preventDefault()
-    console.log("Você fez submit #2") // Nao aparece
-}
+window.onload = () => {
+   console.log("oi");
+   changeInfo();
+};
 
-form.onsubmit = (event) => {
-    event.preventDefault()
-    console.log("Você fez submit #3") // aparece
-}
+amount.addEventListener("input", () => {
+   let newValue = amount.value.toString().replace(/[^0-9]/g, "");
+   amount.value = newValue;
+   changeInfo();
+   convert();
+});
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    console.log("Você fez submit #4") // aparece
-})
+currency.addEventListener("change", () => {
+   changeInfo();
+   convert();
+});
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    console.log("Você fez submit #5") // aparece
-})
+function convert() {
+   let calcResult;
 
-// eventos input
-const input = document.querySelector("input")
+   switch (currency.value) {
+      case "USD":
+         calcResult = amount.value / usd;
+         break;
+      case "EUR":
+         calcResult = amount.value / eur;
+         break;
+      case "GBP":
+         calcResult = amount.value / gbp;
+         break;
+   }
 
-// keydown - qualquer tecla pressionada
-input.addEventListener("keydown", (event) => {
-    //console.log(event)
-})
-
-// keypress - quando tecla do tipo caractere é pressionada (ignora ctrl, shift, alt, esc, enter)
-input.addEventListener("keypress", (event) => {
-    console.log(event)
-})
-
-// change
-input.onchange = () => {
-    console.log("Input mudou")
+   result.textContent = `R$${calcResult.toFixed(2)}`;
 }
