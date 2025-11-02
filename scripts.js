@@ -1,29 +1,31 @@
 /*
-   Mop() - Chama a função 'callback' recebida por
-   parâmetro para cada elemento do array original,
-   em ordem, e constrói um novo array com base nos
-   retornos de cada chamada. E no final, devolve o
-   novo array.
+   Filter() - cria um novo array com todos
+   os elementos que passaram na condição.
 */
 
-const products = ["Teclado", "Mouse", "Monitor"];
+const words = ["Javascript", "HTML", "CSS", "Web"];
 
-// Percorrer os itens do array
-products.map((product, index) => {
-   console.log(`Index: ${index} - Product: ${product}`);
-});
+const result = words.filter((word) => word.length > 3);
 
-// Sintaxe reduzida
-products.map((product, index) => console.log(`Index: ${index} - Product: ${product}`));
+console.log(result);
 
-// Utilizando o novo objeto retornado
-const formatted = products.map((product) => {
-   // return product.toUpperCase();
+const products = [
+   {
+      description: "Teclado",
+      price: 150.3,
+      promotion: false,
+   },
+   {
+      description: "Mouse Pad",
+      price: 50.3,
+      promotion: true,
+   },
+   {
+      description: "Monitor",
+      price: 30.3,
+      promotion: true,
+   },
+];
 
-   return {
-      id: Math.random(),
-      description: product,
-   };
-});
-
-console.log(...formatted);
+const promotion = products.filter((product) => product.promotion);
+console.log(promotion);
