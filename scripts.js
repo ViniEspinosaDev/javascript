@@ -1,31 +1,10 @@
 /*
-   Filter() - cria um novo array com todos
-   os elementos que passaram na condição.
+   findIndex() - retorna o índice no array do primeiro
+   elemento que satisfizer a condição. Caso contrário, 
+   retorna -1, indicando que nenhum elemento passou no teste
 */
 
-const words = ["Javascript", "HTML", "CSS", "Web"];
+const numbers = [4, 6, 8, 12, 13];
 
-const result = words.filter((word) => word.length > 3);
-
-console.log(result);
-
-const products = [
-   {
-      description: "Teclado",
-      price: 150.3,
-      promotion: false,
-   },
-   {
-      description: "Mouse Pad",
-      price: 50.3,
-      promotion: true,
-   },
-   {
-      description: "Monitor",
-      price: 30.3,
-      promotion: true,
-   },
-];
-
-const promotion = products.filter((product) => product.promotion);
-console.log(promotion);
+const index = numbers.findIndex((value) => value > 4);
+console.log(`Index: ${index} - Value: ${numbers[index]}`)
