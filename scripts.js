@@ -1,58 +1,47 @@
-/*
-   Imutabilidade - ao invés de criar uma referência
-   do objeto e ao alterar, mudar o original, o ideal
-   é copiar os dados para outro espaço da memória, 
-   para manter o original imutável
-*/
-
-const address1 = {
-   street: "Av. Brasil",
-   number: 20,
+// Shallow Copy (cópia superficial): não pega os itens aninhados...
+const htmlCourse = {
+   course: "HTML",
+   students: [
+      {
+         name: "Rodrigo",
+         email: "rodrigo@email.com",
+      },
+   ],
 };
 
-// Isso não é uma cópia. É uma referência
-const address2 = address1;
-address2.number = 30;
-
-console.log(address1); // 30
-console.log(address2); // 30
-
-// ------- Copiar 1
-const person = {
-   name: "Vinicius",
-   age: 25,
+// Fez a cópia rasa. A lista 'students' ele passou a mesma referência da memória do htmlCourse.students
+const javascriptCourse = {
+   ...htmlCourse,
+   course: "Javascript",
 };
 
-// Copia para outro endereço da memória
-const person2 = { ...person };
-person2.name = "Wilma";
-person2.age = 88;
+javascriptCourse.students.push({ name: "Vinicius", email: "vinicius@email.com" });
 
-console.log(person); // Vinicius 25
-console.log(person2); // Wilma 88
-
-// ------- Copiar 2
-const product = {
-   description: "Teclado",
-   price: 80.5,
+// ------ Deep Copy (cópia profunda) - Maneira 1
+const cssCourse = {
+   ...htmlCourse,
+   course: "CSS",
+   students: [...htmlCourse.students, { name: "Maria", email: "maria@email.com" }],
 };
 
-const productAfterDiscount = { ...product, price: 70 };
+cssCourse.students.push({ name: "Pedro", email: "pedro@email.com" });
 
-console.log(product); // Teclado 80.5
-console.log(productAfterDiscount); // Teclado 70
+// -------- Deep Copy (cópia profunda) - Maneira 2
+const csharpCourse = {
+   ...htmlCourse,
+   course: "C#",
+};
 
-// ----- Exemplo com array
-// Não cria a cópia. É a mesma referência da memória
-const list1 = ["Apple", "Banana"];
-const list2 = list1;
+csharpCourse.students = [
+   ...htmlCourse.students,
+   { name: "Rafael", email: "rafael@email.com" },
+   { name: "Alberto", email: "alberto@email.com" },
+   { name: "Matheus", email: "matheus@email.com" },
+   { name: "Ricardo", email: "ricardo@email.com" },
+   { name: "Marcelo", email: "marcelo@email.com" },
+];
 
-list2.push("Watermelon");
-
-// Cria cópia em outro endereço da memória. Tornando o original imutável
-const list3 = [...list1, "Strawberry"];
-list3.push("Orange", "Grape");
-
-console.log(list1); // apple, banana, watermelon
-console.log(list2); // apple, banana, watermelon
-console.log(list3); // apple, banana, watermelon, strawberry, orange, grape
+console.log(htmlCourse); // course: html, students: rodrigo e vinicius
+console.log(javascriptCourse); // course: javascript, students: rodrigo e vinicius
+console.log(cssCourse); // course: css, students: rodrigo, vinicius, maria e pedro
+console.log(csharpCourse); // course: css, students: rodrigo, vinicius, rafael, alberto, matheus, ricardo e marcelo
