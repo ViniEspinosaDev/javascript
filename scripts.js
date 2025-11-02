@@ -1,11 +1,26 @@
 /*
-   every() - testa se ao menos um dos elementos
-   do array passam na condição e retorna
-   um valor boolean
+   reduce() - o método reduce é utilizado para
+   reduzir um array a um único valor
+
+   parâmetros:
+   - array original (values)
+   - acumulador (accumulator)
+   - valor da iteração (currentValue)
+   - valor inicial (0)
+   - index (index da iteração atual - opcional)
 */
 
-const ages = [12, 18, 19, 23, 25];
+const values = [10, 20, 30, 40, 50];
 
-// Retorna undefined
-const result = ages.some((age) => age < 18);
-console.log(result);
+const sum = values.reduce((accumulator, currentValue, index) => {
+   console.log("Acumulador: ", accumulator);
+   console.log("Current value: ", currentValue);
+   console.log("Index: ", index);
+
+   console.log("Soma", accumulator + currentValue);
+   console.log("########");
+
+   return accumulator + currentValue;
+}, 0);
+
+console.log("RESULTADO: ", sum);
