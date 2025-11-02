@@ -1,32 +1,29 @@
 /*
- spread (espalhar) permite que um objeto iterável, como uma 
- expressão de array ou uma string seja expandido 
- para ser usado onde zero ou mais argumentos
+   Mop() - Chama a função 'callback' recebida por
+   parâmetro para cada elemento do array original,
+   em ordem, e constrói um novo array com base nos
+   retornos de cada chamada. E no final, devolve o
+   novo array.
 */
 
-const numbers = [1, 2, 3];
-console.log(numbers);
+const products = ["Teclado", "Mouse", "Monitor"];
 
-console.log(...numbers);
+// Percorrer os itens do array
+products.map((product, index) => {
+   console.log(`Index: ${index} - Product: ${product}`);
+});
 
-//
-const data = [
-   {
-      name: "João",
-      email: "joao@email.com",
-      avatar: "joao.png",
-   },
-   {
-      name: "Vini",
-      email: "vini@email.com",
-      avatar: "vini.png",
-   },
-   {
-      name: "Ana",
-      email: "ana@email.com",
-      avatar: "ana.png",
-   },
-];
+// Sintaxe reduzida
+products.map((product, index) => console.log(`Index: ${index} - Product: ${product}`));
 
-console.log(data)
-console.log(...data)
+// Utilizando o novo objeto retornado
+const formatted = products.map((product) => {
+   // return product.toUpperCase();
+
+   return {
+      id: Math.random(),
+      description: product,
+   };
+});
+
+console.log(...formatted);
