@@ -1,47 +1,42 @@
-// Shallow Copy (cópia superficial): não pega os itens aninhados...
-const htmlCourse = {
-   course: "HTML",
-   students: [
-      {
-         name: "Rodrigo",
-         email: "rodrigo@email.com",
-      },
-   ],
+// Shallow freezing (congelamento superficial): congela as mudanças...
+const book = {
+   title: "Objetos imutáveis",
+   category: "Javascript",
+   author: {
+      name: "Rodrigo",
+      email: "rodrigo@email.com",
+   },
 };
 
-// Fez a cópia rasa. A lista 'students' ele passou a mesma referência da memória do htmlCourse.students
-const javascriptCourse = {
-   ...htmlCourse,
-   course: "Javascript",
-};
+// O js em si não impões restrições à modificação dos objetos
+//book.category = "HTML"; // MODIFICA
 
-javascriptCourse.students.push({ name: "Vinicius", email: "vinicius@email.com" });
+// Congela o objeto e impede a modificação
+//Object.freeze(book);
+//book.category = "CSS"; // NÃO MODIFICA
 
-// ------ Deep Copy (cópia profunda) - Maneira 1
-const cssCourse = {
-   ...htmlCourse,
-   course: "CSS",
-   students: [...htmlCourse.students, { name: "Maria", email: "maria@email.com" }],
-};
+//book.author.name = "João"; // MODIFICA, POIS É OBJETO ANINHADO
+//book.author.email = "joao@email.com"; // MODIFICA, POIS É OBJETO ANINHADO
 
-cssCourse.students.push({ name: "Pedro", email: "pedro@email.com" });
+// Função que faz o Deep Freeze recursivamente em todas os propriedades, objetos e funcoes do objeto
+function deepFreeze(object) {
+   const props = Reflect.ownKeys(object);
 
-// -------- Deep Copy (cópia profunda) - Maneira 2
-const csharpCourse = {
-   ...htmlCourse,
-   course: "C#",
-};
+   for (const prop of props) {
+      const value = object[prop];
 
-csharpCourse.students = [
-   ...htmlCourse.students,
-   { name: "Rafael", email: "rafael@email.com" },
-   { name: "Alberto", email: "alberto@email.com" },
-   { name: "Matheus", email: "matheus@email.com" },
-   { name: "Ricardo", email: "ricardo@email.com" },
-   { name: "Marcelo", email: "marcelo@email.com" },
-];
+      if ((value && typeof value === "object") || typeof value === "function") {
+         deepFreeze(value);
+      }
+   }
 
-console.log(htmlCourse); // course: html, students: rodrigo e vinicius
-console.log(javascriptCourse); // course: javascript, students: rodrigo e vinicius
-console.log(cssCourse); // course: css, students: rodrigo, vinicius, maria e pedro
-console.log(csharpCourse); // course: css, students: rodrigo, vinicius, rafael, alberto, matheus, ricardo e marcelo
+   return Object.freeze(object);
+}
+
+deepFreeze(book);
+
+book.title = "NOVO TITULO";
+book.author.name = "NOVO AUTOR";
+book.author.email = "NOVO EMAIL";
+
+console.log(book);
