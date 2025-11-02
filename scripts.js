@@ -1,28 +1,20 @@
-// O strict mode (modo estrito): ativando esse modo, os erros que eram silenciosos passam
-// a gerar exceções no javascript
+// destructuring assignment (desestruturação) permite extrair
+// dados de arrays ou objetos em variáveis distinta
 
-"use strict" // habilita o strict mode
+const infos = ["vini", "vini@email.com"];
 
-function showMessage() {
-   personName = "Rodrigo";
+const [username, email] = infos;
 
-   console.log("Olá", personName);
-}
+console.log(username);
+console.log(email);
 
-//showMessage()
+//
+const fruits = ["banana", "apple", "orange"];
+const [ban] = fruits;
+console.log(ban);
 
-class Student {
-   get point() {
-      return 7
-   }
-}
+const [_, apple] = fruits;
+console.log(apple);
 
-let student = new Student()
-//student.point = 10
-console.log(student.point)
-
-//delete window.document
-
-function sum(a, a, c) {
-   return a + a + c
-}
+const[,,orange] = fruits
+console.log(orange)
