@@ -8,7 +8,7 @@ function asyncFunction() {
       // Simula uma operação assíncrona
 
       setTimeout(() => {
-         const isSuccess = false;
+         const isSuccess = true;
 
          if (isSuccess) {
             resolve("A operação foi concluída com sucesso");
@@ -19,18 +19,20 @@ function asyncFunction() {
    });
 }
 
-// Visualizando que o retorno é uma promisse
-//console.log(asyncFunction()); // Promise {<pending>}
+// const fetchArrowFunction = async () => {
+//    const response = await asyncFunction()
+//    console.log()
+// }
 
-console.log("Executando função assíncrona...");
-
-asyncFunction()
-   .then((response) => {
+async function fetch() {
+   try {
+      const response = await asyncFunction();
       console.log("Sucesso: ", response);
-   })
-   .catch((error) => {
+   } catch (error) {
       console.log("Erro: ", error);
-   })
-   .finally(() => {
-      console.log("Fim da execução");
-   });
+   } finally {
+      console.log("Fim do processo");
+   }
+}
+
+fetch();
