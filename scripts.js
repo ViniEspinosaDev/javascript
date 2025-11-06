@@ -1,17 +1,36 @@
 /*
-setInterval() = executa uma função após um intervalo de tempo
-especificado, executa para sempre
+ Promisse = Promessa, retorno de uma chamada assincrona,
+ que pode ser resolvida ou rejeitada. Caso sucesso, resolve. Caso falha, rejeita
 */
 
-let count = 5;
+function asyncFunction() {
+   return new Promise((resolve, reject) => {
+      // Simula uma operação assíncrona
 
-const interval = setInterval(() => {
-   console.log(count--);
+      setTimeout(() => {
+         const isSuccess = false;
 
-   if (count == 0) {
-      console.log("Feliz ano novo!!");
+         if (isSuccess) {
+            resolve("A operação foi concluída com sucesso");
+         } else {
+            reject("Algo deu errado!");
+         }
+      }, 3000);
+   });
+}
 
-      // Interrompe o intervalo de execuções
-      clearInterval(interval);
-   }
-}, 1000);
+// Visualizando que o retorno é uma promisse
+//console.log(asyncFunction()); // Promise {<pending>}
+
+console.log("Executando função assíncrona...");
+
+asyncFunction()
+   .then((response) => {
+      console.log("Sucesso: ", response);
+   })
+   .catch((error) => {
+      console.log("Erro: ", error);
+   })
+   .finally(() => {
+      console.log("Fim da execução");
+   });
